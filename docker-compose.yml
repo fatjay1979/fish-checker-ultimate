@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  fish-checker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fish-checker-ultimate
+    ports:
+      - "3300:3300"
+    environment:
+      - NODE_ENV=production
+      - PORT=3300
+    volumes:
+      # Optional: Mount .env file for API keys
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    networks:
+      - fish-checker-network
+
+networks:
+  fish-checker-network:
+    driver: bridge
