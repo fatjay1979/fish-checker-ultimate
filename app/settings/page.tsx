@@ -23,7 +23,7 @@ export default function SettingsPage() {
 
   const runTest = async (type: 'wp' | 'openai' | 'perplexity') => {
     setTesting(type);
-    let result;
+    let result: any;
 
     try {
       if (type === 'wp') {
